@@ -1,0 +1,12 @@
+﻿Migrations are enable by default in EF Core.
+
+From Nuget:
+	Microsoft.EntityFrameworkCore
+	Pomelo.EntityFrameworkCore.MySql
+	Microsoft.EntityFrameworkCore.Tools
+	MySql.Data.EntityFrameworkCore
+
+
+Microsoft.Extensions.Configuration.Json
+Microsoft.Extensions.Configuration.FileExtensions
+Current: https://www.youtube.com/watch?v=S8jlWMx7TiM&list=PLUU6Q8aGTpKV4bfIPiqGANF2OpbFbE0vl&index=15&ab_channel=CodeSemantic

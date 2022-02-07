@@ -11,6 +11,7 @@ namespace CodeFirst
             {
                 var context = new MyDbContext();
                 var p = new Programme();
+                p.Id = 100;
                 p.Title = "B.Tech";
                 p.Duration = 4;
                 p.Fees = 50000;

@@ -24,6 +24,7 @@ namespace CodeFirst
             _iConfiguration = builder.Build();
             _connectionString = _iConfiguration.GetConnectionString("DefaultConnection");
 
+            
             Database.EnsureCreated();
         }
 
@@ -45,10 +46,6 @@ namespace CodeFirst
                 .HasOne(ps => ps.Subject)
                 .WithMany(s => s.ProgrammeSubjects)
                 .HasForeignKey(ps => ps.SubjectId);
-
-            /*modelBuilder.Entity<Student>()
-                .HasMany(c => c.Address)
-                .WithOne(e => e.);*/
         }
     }
 }

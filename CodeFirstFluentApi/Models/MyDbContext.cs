@@ -1,22 +1,22 @@
 ﻿using System.IO;
-using CodeFirst.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
-namespace CodeFirst
+namespace CodeFirstFluentApi.Models
 {
-    internal class MyDbContext : DbContext
+    public class MyDbContext : DbContext
     {
         private readonly IConfiguration _iConfiguration;
         private readonly string _connectionString;
 
 
-        public virtual DbSet<Programme> Programmes { get; set; }
-        public virtual DbSet<Subject> Subjects{ get; set; }
-        public virtual DbSet<Student> Students { get; set; }
+        public virtual DbSet<Project> Projects { get; set; }
+        public virtual DbSet<Department> Departments { get; set; }
+        public virtual DbSet<Employee> Employee { get; set; }
         public virtual DbSet<Address> Addresses { get; set; }
+        public virtual DbSet<Team> Teams { get; set; }
 
-        public MyDbContext() : base()
+        public MyDbContext()
         {
             IConfigurationBuilder builder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
@@ -24,7 +24,7 @@ namespace CodeFirst
             _iConfiguration = builder.Build();
             _connectionString = _iConfiguration.GetConnectionString("DefaultConnection");
 
-            
+
             Database.EnsureCreated();
         }
 
@@ -36,17 +36,11 @@ namespace CodeFirst
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Many-to-Many (Programme-Subject)
-            modelBuilder.Entity<ProgrammeSubject>()
-                .HasKey(ps => new { ps.ProgrammeId, ps.SubjectId });  
-            modelBuilder.Entity<ProgrammeSubject>()
-                .HasOne(ps => ps.Programme)
-                .WithMany(p => p.ProgrammeSubjects)
-                .HasForeignKey(ps => ps.ProgrammeId);
-            modelBuilder.Entity<ProgrammeSubject>()
-                .HasOne(ps => ps.Subject)
-                .WithMany(s => s.ProgrammeSubjects)
-                .HasForeignKey(ps => ps.SubjectId);
+            // ToTable => configure table name
+            modelBuilder.Entity<Department>().ToTable("Dpto");
+
+            // HasKey => configure the primary key
+            modelBuilder.Entity<Address>().HasKey(a => new {a.EmployeeId});
         }
     }
 }

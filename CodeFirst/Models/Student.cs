@@ -18,7 +18,7 @@ namespace CodeFirst.Models
 
         public string  ContactNo { get; set; }
 
-        // [ForeignKey("Programme")]
+        // [ForeignKey("Programme")] => Its ok too
         public int ProgrammeId { get; set; }
 
 

@@ -9,4 +9,4 @@ From Nuget:
 
 Microsoft.Extensions.Configuration.Json
 Microsoft.Extensions.Configuration.FileExtensions
-Current: https://www.youtube.com/watch?v=S8jlWMx7TiM&list=PLUU6Q8aGTpKV4bfIPiqGANF2OpbFbE0vl&index=15&ab_channel=CodeSemantic
+Current: https://www.youtube.com/watch?v=VeXkNsVKab4&list=PLUU6Q8aGTpKV4bfIPiqGANF2OpbFbE0vl&index=19&ab_channel=CodeSemantic
